@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noticias</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+</head>
+<body>
+    
+    <ul>
+        <li><a href="/">Inicio</a></li>
+        <li><a href="/Noticias">Noticias</a></li>
+        <li><a href="/tienda_de_inventos">tienda de invente</a></li>
+    </ul>
+    
+    <h1>Noticias</h1>
+    {% if noticias %}
+        <h2>Noticias existentes:</h2>
+        <ul>
+            {% for noticia in noticias %}
+                <li>
+                    <h3>{{ noticia['titulo'] }}</h3>
+                    <p>{{ noticia['copete'] }}</p>  
+                    <p id="{{ noticia['titulo'] }}_texto" style="display:none;">{{ noticia['texto'] }}</p>  
+                    <img src="{{ url_for('static', filename='uploads/' + noticia['imagen']) }}" alt="Imagen de la noticia">
+                </li>
+                <button onclick="toggleText('{{ noticia['titulo'] }}')">Mostrar/Ocultar Texto</button>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    
+<script>
+    function toggleText(titulo) {
+        var textoElement = document.getElementById(titulo + '_texto');
+        if (textoElement.style.display === 'none') {
+            textoElement.style.display = 'block';
+        } else {
+            textoElement.style.display = 'none';
+        }
+    }
+</script>
+
+    <li><a href="/login">login</a></li>
+</body>
+</html>

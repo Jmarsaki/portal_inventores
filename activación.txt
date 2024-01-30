@@ -1,0 +1,23 @@
+
+Micromanual de instrucciones:
+
+1-
+
+C:\Users\Mariano>cd C:\Users\Mariano\Documents\GitHub\PortalMNL 
+
+C:\Users\Mariano>cd C:\Users\Mariano\Documents\GitHub\PortalMNL\main           cargar primero esto
+
+env\Scripts\activate.bat                                                       seguidamente cargar esto
+
+2-
+ python server.py  
+
+ node server.js 
+
+flask run  
+
+contrasena_segura                contraseña para cargar noticias
+
+e5yf79xm7k                       contraseña para cargar noticias
+
+vcbd08gc94                       contrasena2  para cargar libros                  

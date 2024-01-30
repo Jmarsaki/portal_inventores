@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda de libros</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+</head>
+
+<body>
+    <ul>
+        <li><a href="/">Inicio</a></li>
+        <li><a href="/Noticias">Noticias</a></li>
+        <li><a href="/tienda_de_inventos">Tienda de inventos</a></li>
+    </ul>
+    
+    <h1>Tienda de inventos</h1>
+    
+    <h2>Para realizar pedidos sin mediación: usuario@proveedor</h2>
+    {% if libros %}
+        <h3>Libros en lista:</h3>
+        <ul>
+            {% for libro in libros %}
+                <li>
+                    <h4>{{ libro['titulo'] }}</h4>
+                    <p>Precio: {{ libro['precio'] }}</p>
+                    <p>Comprar: {{ libro['comprar'] }}</p>
+                    <img src="{{ url_for('static', filename='uploads/' + libro['imagen']) }}" alt="Imagen del libro">
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <li><a href="/password">Password</a></li>
+
+    <script>
+        // No necesitas cambiar nada en este script
+        function toggleText(titulo) {
+            var textoElement = document.getElementById(titulo + '_texto');
+            if (textoElement.style.display === 'none') {
+                textoElement.style.display = 'block';
+            } else {
+                textoElement.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
